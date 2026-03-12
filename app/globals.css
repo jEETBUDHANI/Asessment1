@@ -1,0 +1,471 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #f0f4f8;
+  color: #1a202c;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrapper {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 28px 20px 40px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.header-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a202c;
+  letter-spacing: -0.3px;
+}
+
+.header-subtitle {
+  font-size: 12.5px;
+  color: #718096;
+  margin-top: 3px;
+}
+
+.record-count {
+  background: #4f46e5;
+  color: #fff;
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 16px;
+}
+
+.tab-btn {
+  border: none;
+  background: none;
+  padding: 8px 16px;
+  font-size: 13px;
+  color: #718096;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.tab-btn.active {
+  color: #4f46e5;
+  border-bottom-color: #4f46e5;
+  font-weight: 500;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 200px;
+}
+
+.search-input {
+  width: 100%;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  padding: 7px 12px;
+  font-size: 13px;
+  color: #2d3748;
+  background: #fff;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.search-input::placeholder {
+  color: #a0aec0;
+}
+
+.filter-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.filter-count {
+  font-size: 12px;
+  color: #718096;
+  white-space: nowrap;
+}
+
+.select-input {
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  padding: 7px 10px;
+  font-size: 12px;
+  color: #2d3748;
+  background: #fff;
+  cursor: pointer;
+}
+
+.select-input:focus {
+  outline: none;
+  border-color: #4f46e5;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 12px;
+  color: #4338ca;
+}
+
+.chip-x {
+  background: none;
+  border: none;
+  color: #818cf8;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  padding: 0;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 14px;
+}
+
+.btn-pdf {
+  border: 1px solid #cbd5e0;
+  background: #fff;
+  color: #4a5568;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn-pdf:hover {
+  background: #f7fafc;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.patient-card {
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.15s ease;
+}
+
+.patient-card:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.accent-fever           { border-top: 3px solid #f87171; }
+.accent-headache        { border-top: 3px solid #fb923c; }
+.accent-rash            { border-top: 3px solid #f472b6; }
+.accent-sprained-ankle  { border-top: 3px solid #34d399; }
+.accent-sore-throat     { border-top: 3px solid #fbbf24; }
+.accent-ear-infection   { border-top: 3px solid #38bdf8; }
+.accent-sinusitis       { border-top: 3px solid #94a3b8; }
+.accent-allergic-reaction { border-top: 3px solid #a78bfa; }
+.accent-stomach-ache    { border-top: 3px solid #fb7185; }
+.accent-broken-arm      { border-top: 3px solid #c084fc; }
+.accent-default         { border-top: 3px solid #cbd5e0; }
+
+.card-header {
+  padding: 12px 12px 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 2px solid #e2e8f0;
+}
+
+.avatar-fallback {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #4f46e5;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.card-name-block {
+  flex: 1;
+  min-width: 0;
+}
+
+.card-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a202c;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-pid {
+  font-size: 10px;
+  color: #a0aec0;
+  margin-top: 2px;
+}
+
+.age-badge {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #16a34a;
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 7px;
+  border-radius: 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.card-body {
+  padding: 0 12px 12px;
+}
+
+.issue-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11.5px;
+  color: #374151;
+  margin-bottom: 10px;
+}
+
+.issue-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot-fever             { background: #f87171; }
+.dot-headache          { background: #fb923c; }
+.dot-rash              { background: #f472b6; }
+.dot-sprained-ankle    { background: #34d399; }
+.dot-sore-throat       { background: #fbbf24; }
+.dot-ear-infection     { background: #38bdf8; }
+.dot-sinusitis         { background: #94a3b8; }
+.dot-allergic-reaction { background: #a78bfa; }
+.dot-stomach-ache      { background: #fb7185; }
+.dot-broken-arm        { background: #c084fc; }
+.dot-default           { background: #cbd5e0; }
+
+.divider {
+  height: 1px;
+  background: #f1f5f9;
+  margin: 0 0 8px;
+}
+
+.contact-row {
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+  font-size: 11.5px;
+  color: #4a5568;
+  margin-bottom: 5px;
+  overflow: hidden;
+}
+
+.contact-row:last-child {
+  margin-bottom: 0;
+}
+
+.contact-label {
+  font-size: 10px;
+  color: #a0aec0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  width: 42px;
+}
+
+.contact-value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.table-wrap {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #718096;
+  padding: 10px 14px;
+  background: #f7fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.table td {
+  font-size: 13px;
+  color: #2d3748;
+  padding: 10px 14px;
+  border-bottom: 1px solid #f0f4f8;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tr:hover td {
+  background: #fafbfc;
+}
+
+.status-text {
+  font-size: 13px;
+  color: #718096;
+  padding: 24px 0;
+  text-align: center;
+}
+
+.error-box {
+  background: #fff5f5;
+  border: 1px solid #fed7d7;
+  color: #c53030;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 13px;
+  margin: 8px 0;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  margin-top: 24px;
+}
+
+.pg-btn {
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  color: #4a5568;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.pg-btn:hover:not(:disabled):not(.active) {
+  background: #f7fafc;
+  border-color: #cbd5e0;
+}
+
+.pg-btn.active {
+  background: #4f46e5;
+  border-color: #4f46e5;
+  color: #fff;
+  font-weight: 500;
+}
+
+.pg-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pg-arrow {
+  border: none;
+  background: none;
+  color: #4a5568;
+  font-size: 12px;
+  padding: 0 6px;
+  cursor: pointer;
+  height: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.pg-arrow:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+@media (max-width: 1080px) {
+  .cards-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 780px) {
+  .cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .controls { flex-direction: column; align-items: stretch; }
+  .filter-group { flex-wrap: wrap; }
+}
+
+@media (max-width: 480px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  .wrapper { padding: 16px 12px 32px; }
+}
